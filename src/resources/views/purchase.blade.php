@@ -10,8 +10,8 @@
             <div class="left-content">
                 <div class="order-product">
                     <div class="order-image">
-                        <img src="{{ url($product->product_image) }}" alt="{{ $product->name }}">
-                        {{-- <img src="{{ asset('storage/product_images/' . $product->product_image) }}" alt="商品画像"> --}}
+                        {{-- <img src="{{ url($product->product_image) }}" alt="{{ $product->name }}"> --}}
+                        <img src="{{ asset('storage/product_images/' . $product->product_image) }}" alt="商品画像">
                     </div>
                     <div class="order-information">
                         <h3>{{ $product->name }}</h3>

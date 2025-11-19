@@ -8,8 +8,8 @@
 @section('content')
     <div class="product">
         <div class="left-content">
-            <img src="{{ url($product->product_image) }}" alt="{{ $product->name }}">
-            {{-- <img src="{{ asset('storage/product_images/' . $product->product_image) }}" alt="商品画像"> --}}
+            {{-- <img src="{{ url($product->product_image) }}" alt="{{ $product->name }}"> --}}
+            <img src="{{ asset('storage/product_images/' . $product->product_image) }}" alt="商品画像">
         </div>
         <div class="right-content">
             <div class="product-detail">

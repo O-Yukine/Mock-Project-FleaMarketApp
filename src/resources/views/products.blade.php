@@ -19,8 +19,8 @@
             @foreach ($products as $product)
                 <div class="card">
                     <a href="/item/{{ $product->id }}">
-                        <img src="{{ url($product->product_image) }}" alt="{{ $product->name }}">
-                        {{-- <img src="{{ asset('storage/product_images/' . $product->product_image) }}" alt="商品画像"> --}}
+                        {{-- <img src="{{ url($product->product_image) }}" alt="{{ $product->name }}"> --}}
+                        <img src="{{ asset('storage/product_images/' . $product->product_image) }}" alt="商品画像">
                         <div class="card-info">
                             <p>{{ $product->name }}</p>
                             @if ($product->purchases->isNotEmpty())

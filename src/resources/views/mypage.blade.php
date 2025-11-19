@@ -23,8 +23,8 @@
                 @if ($tab === 'sell')
                     @foreach ($sell_items as $item)
                         <div class="card">
-                            <img src="{{ url($item->product_image) }}" alt="{{ $item->name }}">
-                            {{-- <img src="{{ asset('storage/product_images/' . $item->product_image) }}" alt="商品画像"> --}}
+                            {{-- <img src="{{ url($item->product_image) }}" alt="{{ $item->name }}"> --}}
+                            <img src="{{ asset('storage/product_images/' . $item->product_image) }}" alt="商品画像">
                             <div class="card-info">
                                 <p>{{ $item->name }}</p>
                                 @if ($item->purchases->isNotEmpty())
@@ -38,17 +38,16 @@
                 @if ($tab === 'buy')
                     @foreach ($purchased_items as $purchase)
                         <div class="card">
-                            <img src="{{ url($purchase->product->product_image) }}" alt="{{ $purchase->product->name }}">
-                            {{-- <img src="{{ asset('storage/product_images/' . $purchase->product->product_image) }}" --}}
-
-                            <div class="card-info">
-                                <p>{{ $purchase->product->name }}</p>
-                            </div>
+                            {{-- <img src="{{ url($purchase->product->product_image) }}" alt="{{ $purchase->product->name }}"> --}}
+                            <img src="{{ asset('storage/product_images/' . $purchase->product->product_image) }}" <div
+                                class="card-info">
+                            <p>{{ $purchase->product->name }}</p>
                         </div>
-                    @endforeach
-                @endif
-
             </div>
+            @endforeach
+            @endif
+
         </div>
+    </div>
     </div>
 @endsection
