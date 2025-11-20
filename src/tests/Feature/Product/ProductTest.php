@@ -3,7 +3,6 @@
 namespace Tests\Feature\Product;
 
 use Illuminate\Foundation\Testing\RefreshDatabase;
-use Illuminate\Foundation\Testing\WithFaker;
 use Tests\TestCase;
 use App\Models\Product;
 use App\Models\Category;
@@ -38,20 +37,18 @@ class ProductTest extends TestCase
         }
     }
 
-    public function test_only_solditem_have_soldtag()
+    public function test_soldItem_have_soldTag()
     {
-        $category = Category::factory()->create();
+        $seller = User::factory()->create();
+        $product = Product::factory()->create([
+            'user_id' => $seller->id,
+        ]);
 
-        $sold = Product::factory()->create();
-        $sold->categories()->attach($category->id);
-
-        $notSold = Product::factory()->create();
-        $notSold->categories()->attach($category->id);
+        $buyer = User::factory()->create();
 
         Purchase::create([
-            'id' => 1,
-            'user_id' => $sold->user->id,
-            'product_id' => $sold->id,
+            'user_id' => $buyer->id,
+            'product_id' => $product->id,
             'payment_method' => 'card',
             'post_code' => '123-4567',
             'address' => '東京都新宿区',
@@ -59,7 +56,6 @@ class ProductTest extends TestCase
         ]);
 
         $response = $this->get('/');
-
         $response->assertSee('sold');
     }
 
