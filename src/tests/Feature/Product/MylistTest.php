@@ -11,6 +11,7 @@ use App\Models\Purchase;
 
 class MylistTest extends TestCase
 {
+    use RefreshDatabase;
     /**
      * A basic feature test example.
      *
@@ -34,10 +35,10 @@ class MylistTest extends TestCase
         $responce = $this->get('/?tab=mylist');
 
         $responce->assertSee($likedItem->name);
-        $responce->assertDontSee($unlikedItem->name));
+        $responce->assertDontSee($unlikedItem->name);
     }
 
-    public function test_soldItem_have_soldTag()
+    public function test_purchased_item_shows_sold_tag_in_mylist()
     {
         $seller = User::factory()->create();
         $product = Product::factory()->create([
@@ -67,6 +68,7 @@ class MylistTest extends TestCase
         $seller = User::factory()->create();
         $product = Product::factory()->create([
             'user_id' => $seller->id,
+            'name' => 'テスト商品'
         ]);
 
         $buyer = User::factory()->create();
