@@ -40,7 +40,7 @@
                     </form>
                     <div class="comment-icon">
                         <img src="{{ asset('images/comment.png') }}" alt="/comment_icon">
-                        <p>{{ $product->comments->count() ?? 0 }}</p>
+                        <p>{{ $product->comments->count() }}</p>
                     </div>
                 </div>
                 <form class="form.order" action="/purchase/{{ $product->id }}" method="get">
@@ -67,7 +67,8 @@
                 </div>
             </div>
             <div class="product__comments">
-                <h3>コメント({{ $product->comments->count() ?? 0 }})</h3>
+                <h3>コメント({{ $product->comments->count() }})
+                </h3>
                 @isset($product->comments)
                     @foreach ($product->comments as $comment)
                         <div class="comment__title">
