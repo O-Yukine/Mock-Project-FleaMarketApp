@@ -28,7 +28,7 @@
                         <button class="like__button" type="submit">
                             <img src="{{ $heartImage }}">
                         </button>
-                        <p>{{ $product->likedBy->count() }}</p>
+                        <p data-like-count="{{ $product->likedBy->count() }}">{{ $product->likedBy->count() }}</p>
 
                         {{-- @if ($product->likedBy->contains(auth()->id()))
                         <button><i class="fa-solid fa-star fa-lg"></i>

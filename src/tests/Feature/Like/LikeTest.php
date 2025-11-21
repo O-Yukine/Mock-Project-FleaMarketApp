@@ -3,7 +3,6 @@
 namespace Tests\Feature\Like;
 
 use Illuminate\Foundation\Testing\RefreshDatabase;
-use Illuminate\Foundation\Testing\WithFaker;
 use Tests\TestCase;
 use App\Models\User;
 use App\Models\Product;
@@ -23,12 +22,18 @@ class LikeTest extends TestCase
 
         $this->actingAs($user);
 
+        $response = $this->get('/item/' . $product->id);
+        $response->assertSee('data-like-count="0"', false);
+
         $this->assertDatabaseMissing('user_product_likes', [
             'product_id' => $product->id,
             'user_id' => $user->id,
         ]);
 
         $this->post('/item/' . $product->id . '/like');
+
+        $response = $this->get('/item/' . $product->id);
+        $response->assertSee('data-like-count="1"', false);
 
         $this->assertDatabaseHas('user_product_likes', [
             'product_id' => $product->id,
@@ -76,12 +81,19 @@ class LikeTest extends TestCase
 
         $this->actingAs($user);
 
-        $this->assertDatabasehas('user_product_likes', [
+        $response = $this->get('/item/' . $product->id);
+        $response->assertSee('data-like-count="1"', false);
+
+        $this->assertDatabaseHas('user_product_likes', [
             'product_id' => $product->id,
             'user_id' => $user->id,
         ]);
 
         $this->post('/item/' . $product->id . '/like');
+
+
+        $response = $this->get('/item/' . $product->id);
+        $response->assertSee('data-like-count="0"', false);
 
         $this->assertDatabaseMissing('user_product_likes', [
             'product_id' => $product->id,

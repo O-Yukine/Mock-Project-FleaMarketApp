@@ -21,7 +21,7 @@ class ProductTest extends TestCase
         $response->assertStatus(200);
     }
 
-    public function test_unloginUser_can_see_all_the_products()
+    public function test_guest_can_see_all_the_products()
     {
         $products = Product::factory()->count(5)->create();
         $categories = Category::factory()->count(3)->create();
