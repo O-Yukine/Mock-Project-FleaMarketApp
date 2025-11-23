@@ -15,7 +15,11 @@ class ItemController extends Controller
     public function index(Request $request)
     {
         $tab = $request->query('tab', '');
-        $keyword = $request->input('keyword');
+
+        if ($request->filled('keyword')) {
+            session(['keyword' => $request->keyword]);
+        }
+        $keyword = $request->input('keyword', session('keyword', ''));
 
         if ($tab === '') {
             $tab = auth()->check() ? 'mylist'  : 'recommended';

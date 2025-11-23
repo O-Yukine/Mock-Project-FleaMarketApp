@@ -7,13 +7,12 @@
     <div class="products">
         @if (request('message'))
             <script>
-                alert("{{ reqest('message') }}");
+                alert("{{ request('message') }}");
             </script>
         @endif
         <div class="products_nav">
-            <a href="/?tab=recommended&keyword={{ request('keyword') }}"
-                class="{{ $tab == 'recommended' ? 'active' : '' }}">おすすめ</a>
-            <a href="/?tab=mylist&keyword={{ request('keyword') }}" class="{{ $tab == 'mylist' ? 'active' : '' }}">マイリスト</a>
+            <a href="/?tab=recommended" class="{{ $tab == 'recommended' ? 'active' : '' }}">おすすめ</a>
+            <a href="/?tab=mylist" class="{{ $tab == 'mylist' ? 'active' : '' }}">マイリスト</a>
         </div>
         <div class="products__list">
             @foreach ($products as $product)
