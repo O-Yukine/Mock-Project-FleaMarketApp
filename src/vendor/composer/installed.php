@@ -511,6 +511,15 @@
             'aliases' => array(),
             'dev_requirement' => false,
         ),
+        'livewire/livewire' => array(
+            'pretty_version' => 'v2.12.8',
+            'version' => '2.12.8.0',
+            'reference' => '7d657d0dd8761a981f7ac3cd8d71c3b724f3e0b8',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../livewire/livewire',
+            'aliases' => array(),
+            'dev_requirement' => false,
+        ),
         'mockery/mockery' => array(
             'pretty_version' => '1.5.0',
             'version' => '1.5.0.0',
