@@ -28,11 +28,7 @@
                         @enderror
                     </div>
                     <div class="payment-type__select">
-                        <select id="payment-method" name="payment_method">
-                            <option value="">選択してください</option>
-                            <option value="convenience">コンビニ払い</option>
-                            <option value="credit">カード支払い</option>
-                        </select>
+                        <livewire:payment />
                     </div>
                 </div>
                 <div class="shipping-address">
@@ -72,7 +68,9 @@
                     </tr>
                     <tr>
                         <th>支払い方法</th>
-                        <td id="payment-info"></td>
+                        <td id="payment-info">
+                            <livewire:payment-display />
+                        </td>
                     </tr>
                 </table>
                 <div class="order__submit">
@@ -83,7 +81,7 @@
     </div>
     </div>
 
-    <script>
+    {{-- <script>
         document.getElementById('payment-method').addEventListener('change', function() {
             const selected = this.value;
             const infoDiv = document.getElementById('payment-info');
@@ -96,5 +94,5 @@
                 infoDiv.innerHTML = '';
             }
         });
-    </script>
+    </script> --}}
 @endsection
