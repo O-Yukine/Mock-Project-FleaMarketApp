@@ -21,7 +21,8 @@
                 @unless (Request::is('register') || Request::is('login') || Request::is('/email/verify'))
                     <div class="search-bar">
                         <form class="form" action="/" method="get">
-                            <input type="text" name="keyword" value="{{ $keyword }}" placeholder="なにをお探しですか？">
+                            <input type="text" name="keyword" value="{{ request('keyword', session('keyword', '')) }}"
+                                placeholder="なにをお探しですか？">
                         </form>
                     </div>
                     @include('layouts.header_nav')

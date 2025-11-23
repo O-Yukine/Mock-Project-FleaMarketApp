@@ -26,6 +26,7 @@ class CommentTest extends TestCase
             'user_id' => $user->id
         ]);
 
+        $before = $product->comments()->count();
 
         $this->post('/item/' . $product->id . '/comment', [
             'comment' => 'とても素敵です！',
@@ -38,6 +39,8 @@ class CommentTest extends TestCase
             'comment' => 'とても素敵です！',
 
         ]);
+
+        $this->assertEquals($product->fresh()->comments()->count(), $before + 1);
     }
 
     public function test_guest_cannot_make_comment()

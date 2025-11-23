@@ -16,13 +16,16 @@ class ItemController extends Controller
     {
         $tab = $request->query('tab', '');
 
-        if ($request->filled('keyword')) {
+        if ($request->has('keyword')) {
             session(['keyword' => $request->keyword]);
+        } else {
+            $keyword = session('keyword', '');
         }
+
         $keyword = $request->input('keyword', session('keyword', ''));
 
         if ($tab === '') {
-            $tab = auth()->check() ? 'mylist'  : 'recommended';
+            $tab = empty($keyword) ? (auth()->check() ? 'mylist' : 'recommended') : 'recommended';
         }
 
         if ($tab === 'mylist') {
