@@ -31,7 +31,7 @@
 7. シーディングの実行  
    `php artisan db:seed`
 
-## ユーザー登録時のめー認証システムの導入
+## ユーザー登録時のメール認証システムの導入
 
 \*以下 mailtrap を利用しています
 
@@ -87,9 +87,15 @@
    `php artisan migrate --env=testing`
 
 5. テストの実行は以下のコマンド  
-   `php artisan test`
+    `php artisan test tests/Feature`
    または  
-   `vender/bin/phpunit`
+    `vendor/bin/phpunit tests/Feature`
+
+   もしくは
+
+   `php artisan test tests/Feature/行いたいテストファイル`
+
+   でファイルごとにテストを行えます
 
 ## 使用技術（実行環境）
 
