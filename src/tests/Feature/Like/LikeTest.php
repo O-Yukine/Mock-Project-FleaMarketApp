@@ -25,7 +25,7 @@ class LikeTest extends TestCase
         $response = $this->get('/item/' . $product->id);
         $response->assertSee('data-like-count="0"', false);
 
-        $this->assertDatabaseMissing('user_product_likes', [
+        $this->assertDatabaseMissing('user_product_like', [
             'product_id' => $product->id,
             'user_id' => $user->id,
         ]);
@@ -35,7 +35,7 @@ class LikeTest extends TestCase
         $response = $this->get('/item/' . $product->id);
         $response->assertSee('data-like-count="1"', false);
 
-        $this->assertDatabaseHas('user_product_likes', [
+        $this->assertDatabaseHas('user_product_like', [
             'product_id' => $product->id,
             'user_id' => $user->id,
         ]);
@@ -84,7 +84,7 @@ class LikeTest extends TestCase
         $response = $this->get('/item/' . $product->id);
         $response->assertSee('data-like-count="1"', false);
 
-        $this->assertDatabaseHas('user_product_likes', [
+        $this->assertDatabaseHas('user_product_like', [
             'product_id' => $product->id,
             'user_id' => $user->id,
         ]);
@@ -95,7 +95,7 @@ class LikeTest extends TestCase
         $response = $this->get('/item/' . $product->id);
         $response->assertSee('data-like-count="0"', false);
 
-        $this->assertDatabaseMissing('user_product_likes', [
+        $this->assertDatabaseMissing('user_product_like', [
             'product_id' => $product->id,
             'user_id' => $user->id,
         ]);

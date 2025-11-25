@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateUserProductLikesTable extends Migration
+class CreateUserProductLikeTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreateUserProductLikesTable extends Migration
      */
     public function up()
     {
-        Schema::create('user_product_likes', function (Blueprint $table) {
+        Schema::create('user_product_like', function (Blueprint $table) {
             $table->id();
             $table->foreignId('user_id')->constrained()->cascadeOnDelete();
             $table->foreignId('product_id')->constrained()->cascadeOnDelete();
@@ -28,6 +28,6 @@ class CreateUserProductLikesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('user_product_likes');
+        Schema::dropIfExists('user_product_like');
     }
 }

@@ -26,7 +26,7 @@ class CategoryTableSeeder extends Seeder
             'ゲーム',
             'スポーツ',
             'キッチン',
-            'ハンドメード',
+            'ハンドメイド',
             'アクセサリ',
             'おもちゃ',
             'ベビー・キッズ'

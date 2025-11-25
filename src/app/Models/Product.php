@@ -51,7 +51,7 @@ class Product extends Model
 
     public function likedBy()
     {
-        return $this->belongsToMany(User::class, 'user_product_likes');
+        return $this->belongsToMany(User::class, 'user_product_like');
     }
 
     public function scopeProductSearch($query, $keyword)
