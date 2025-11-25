@@ -8,7 +8,6 @@
 @section('content')
     <div class="product">
         <div class="left-content">
-            {{-- <img src="{{ url($product->product_image) }}" alt="{{ $product->name }}"> --}}
             <img src="{{ asset('storage/product_images/' . $product->product_image) }}" alt="商品画像">
         </div>
         <div class="right-content">
@@ -30,13 +29,6 @@
                         </button>
                         <p data-like-count="{{ $product->likedBy->count() }}">{{ $product->likedBy->count() }}</p>
 
-                        {{-- @if ($product->likedBy->contains(auth()->id()))
-                        <button><i class="fa-solid fa-star fa-lg"></i>
-                        </button>
-                    @else
-                        <button><i class="fa-regular fa-star fa-lg"></i>
-                        </button>
-                    @endif --}}
                     </form>
                     <div class="comment-icon">
                         <img src="{{ asset('images/comment.png') }}" alt="/comment_icon">

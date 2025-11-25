@@ -3,7 +3,6 @@
 namespace Tests\Feature\Product;
 
 use Illuminate\Foundation\Testing\RefreshDatabase;
-use Illuminate\Foundation\Testing\WithFaker;
 use Tests\TestCase;
 use App\Models\User;
 use App\Models\Product;
@@ -12,11 +11,7 @@ use App\Models\Purchase;
 class MylistTest extends TestCase
 {
     use RefreshDatabase;
-    /**
-     * A basic feature test example.
-     *
-     * @return void
-     */
+
     public function test_only_likedItem_is_showing()
     {
         $user = User::factory()->create();
