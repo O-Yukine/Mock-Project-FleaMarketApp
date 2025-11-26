@@ -9,7 +9,7 @@ use App\Notifications\CustomVerifyEmail;
 use App\Models\User;
 
 
-class verificationTest extends TestCase
+class VerificationTest extends TestCase
 {
     use RefreshDatabase;
 

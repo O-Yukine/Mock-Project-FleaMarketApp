@@ -34,6 +34,10 @@ class ProductDetailTest extends TestCase
 
         $category = Category::factory()->create();
         $product = Product::factory()->create([
+            'name' => 'ショルダーバッグ',
+            'brand' => 'プラダ',
+            'price' => 29000,
+            'content' => '新品未開封',
             'condition_id' => $condition->id,
         ]);
         $product->categories()->attach($category->id);
@@ -51,7 +55,7 @@ class ProductDetailTest extends TestCase
 
         $response->assertSee($product->name);
         $response->assertSee($product->brand);
-        $response->assertSee((string)$product->price);
+        $response->assertSee(number_format($product->price));
         $response->assertSee($product->content);
         $response->assertSee($product->product_image);
 

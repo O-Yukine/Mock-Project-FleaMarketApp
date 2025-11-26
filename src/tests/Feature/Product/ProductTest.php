@@ -23,7 +23,15 @@ class ProductTest extends TestCase
 
     public function test_guest_can_see_all_the_products()
     {
-        $products = Product::factory()->count(5)->create();
+        $names = ['商品1', '商品2', '商品3', '商品4', '商品5'];
+
+        $products = collect();
+        foreach ($names as $name) {
+            $products->push(
+                Product::factory()->create(['name' => $name])
+            );
+        }
+
         $categories = Category::factory()->count(3)->create();
 
         foreach ($products as $product) {
@@ -47,6 +55,7 @@ class ProductTest extends TestCase
         $buyer = User::factory()->create();
 
         Purchase::create([
+            'status' => 'paid',
             'user_id' => $buyer->id,
             'product_id' => $product->id,
             'payment_method' => 'credit',
@@ -63,7 +72,10 @@ class ProductTest extends TestCase
     {
 
         $user1 = User::factory()->create();
-        $product = Product::factory()->create(['user_id' => $user1->id,]);
+        $product = Product::factory()->create([
+            'name' => '商品１',
+            'user_id' => $user1->id,
+        ]);
 
         $user2 = User::factory()->create();
 

@@ -1,6 +1,6 @@
 <?php
 
-namespace Tests\Feature\profile;
+namespace Tests\Feature\Mypage;
 
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Tests\TestCase;
@@ -38,6 +38,7 @@ class ProfileTest extends TestCase
 
         Purchase::create([
             'user_id' => $user->id,
+            'status' => 'paid',
             'product_id' => $purchaseItem->id,
             'payment_method' => 'credit',
             'post_code' => $user->profile->post_code,

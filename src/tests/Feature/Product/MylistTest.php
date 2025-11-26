@@ -44,6 +44,7 @@ class MylistTest extends TestCase
         $buyer->likes()->attach($product->id);
 
         Purchase::create([
+            'status' => 'paid',
             'user_id' => $buyer->id,
             'product_id' => $product->id,
             'payment_method' => 'card',
