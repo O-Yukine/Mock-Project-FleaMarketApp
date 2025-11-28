@@ -30,7 +30,7 @@ Route::post('/register', [AuthController::class, 'register']);
 Route::post('/login', [AuthController::class, 'login']);
 Route::post('/logout', [AuthController::class, 'destroy']);
 
-Route::get('/', [ItemController::class, 'index']);
+Route::get('/', [ItemController::class, 'index'])->middleware(['auth', 'verified']);
 Route::get('/item/{item_id}', [ItemController::class, 'showDetail']);
 
 Route::middleware('auth', 'verified')->prefix('sell')->group(function () {
