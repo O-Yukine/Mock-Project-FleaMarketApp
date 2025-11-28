@@ -19,6 +19,11 @@
                 </label>
                 <input type="file" name="profile_image" id="profile_image">
             </div>
+            <div class="form__error">
+                @error('profile_image')
+                    {{ $message }}
+                @enderror
+            </div>
             <div class="profile__contents">
                 <div class="input__gropu">
                     <div class="input__group-title">
