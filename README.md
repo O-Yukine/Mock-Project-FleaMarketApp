@@ -6,7 +6,7 @@
 
 1. リポジトリをクローン
 
-   `git clone git@github.com:O-Yukine/Mock-Projrct-FleaMarketApp.git`
+   `git clone git@github.com:O-Yukine/Mock-Project-FleaMarketApp.git`
 
 2. Docker アプリを立ち上げる
 
@@ -30,7 +30,7 @@
 
 4. .env ファイルを編集
 
-   DB_HOST=mysql
+   DB_HOST=mysql  
    DB_DATABASE=laravel_db  
    DB_USERNAME=laravel_user  
    DB_PASSWORD=laravel_pass
@@ -132,35 +132,11 @@
 
     `CREATE DATABASE laravel_test;`
 
-2.  config ファイルの変更
-
-    config ディレクトリ内の database.php を開き、mysql の配列部分をコピーして新たに mysql_test を作成
-
-         'mysql_test' => [
-             'driver' => 'mysql',
-             'url' => env('DATABASE_URL'),
-             'host' => env('DB_HOST', '127.0.0.1'),
-             'port' => env('DB_PORT', '3306'),
-             'database' => 'laravel_test',
-             'username' => 'root',
-             'password' => 'root',
-             'unix_socket' => env('DB_SOCKET', ''),
-             'charset' => 'utf8mb4',
-             'collation' => 'utf8mb4_unicode_ci',
-             'prefix' => '',
-             'prefix_indexes' => true,
-             'strict' => true,
-             'engine' => null,
-             'options' => extension_loaded('pdo_mysql') ? array_filter([
-                 PDO::MYSQL_ATTR_SSL_CA => env('MYSQL_ATTR_SSL_CA'),
-             ]) : [],
-         ],
-
-3.  テスト用.env を作る
+2.  テスト用.env を作る
 
     `cp .env .env.testing`
 
-4.  .env.testing を編集
+3.  .env.testing を編集
 
     APP_ENV=test  
     APP_KEY=
@@ -169,15 +145,15 @@
     DB_USERNAME=root  
     DB_PASSWORD=root
 
-5.  テスト用アプリケーションキーの作成
+4.  テスト用アプリケーションキーの作成
 
     `php artisan key:generate --env=testing`
 
-6.  マイグレーションの実行
+5.  マイグレーションの実行
 
     `php artisan migrate --env=testing`
 
-7.  テストの実行は以下のコマンド
+6.  テストの実行は以下のコマンド
 
     `php artisan test tests/Feature`
     または
