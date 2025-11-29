@@ -36,6 +36,13 @@ class AuthController extends Controller
     {
         $credentials = $request->only('email', 'password');
         if (Auth::attempt($credentials)) {
+
+            $user = Auth::user();
+
+            if (!$user->email_verified_at) {
+
+                return redirect('/email/verify');
+            }
             return redirect('/');
         };
 
