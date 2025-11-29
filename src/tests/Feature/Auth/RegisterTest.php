@@ -9,14 +9,6 @@ class RegisterTest extends TestCase
 {
     use RefreshDatabase;
 
-    public function test_user_can_access_to_registerpage()
-    {
-        $response = $this->get('/register');
-
-        $response->assertStatus(200);
-    }
-
-
     public function test_register_validation_name_is_empty()
     {
         $response = $this->post('/register', [

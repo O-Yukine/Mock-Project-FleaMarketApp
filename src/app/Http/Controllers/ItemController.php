@@ -15,7 +15,7 @@ class ItemController extends Controller
     public function index(Request $request)
     {
         $keyword = $request->input('keyword', session('keyword', ''));
-        if ($request->has('keyword')) {
+        if ($request->filled('keyword')) {
             session(['keyword' => $keyword]);
         }
 

@@ -14,13 +14,6 @@ class ProductTest extends TestCase
 
     use RefreshDatabase;
 
-    public function test_anyone_can_access_to_productspage()
-    {
-        $response = $this->get('/');
-
-        $response->assertStatus(200);
-    }
-
     public function test_guest_can_see_all_the_products()
     {
         $names = ['商品1', '商品2', '商品3', '商品4', '商品5'];

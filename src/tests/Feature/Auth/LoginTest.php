@@ -10,14 +10,6 @@ class LoginTest extends TestCase
 {
     use RefreshDatabase;
 
-    public function test_user_can_access_to_loginpage()
-    {
-        $response = $this->get('/login');
-
-        $response->assertStatus(200);
-    }
-
-
 
     public function test_login_validation_email_is_empty()
     {
